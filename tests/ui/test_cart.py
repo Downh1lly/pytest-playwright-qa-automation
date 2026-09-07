@@ -1,7 +1,10 @@
+import allure
 import pytest
 from playwright.sync_api import Page, expect
 
 @pytest.mark.ui
+@allure.feature("Cart")
+@allure.story("Add item to cart")
 def test_add_item_to_cart(inventory_page, cart_page) -> None:
 
     inventory_page.add_to_cart("Sauce Labs Backpack")
@@ -11,6 +14,8 @@ def test_add_item_to_cart(inventory_page, cart_page) -> None:
     expect(cart_page.get_item("Sauce Labs Backpack")).to_be_visible()
 
 @pytest.mark.ui
+@allure.feature("Cart")
+@allure.story("Remove item from cart")
 def test_remove_item_from_cart(inventory_page, cart_page) -> None:
    
     inventory_page.add_to_cart("Sauce Labs Backpack")

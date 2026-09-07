@@ -1,7 +1,10 @@
+import allure
 import pytest
 from playwright.sync_api import expect
 
 @pytest.mark.ui
+@allure.feature("Checkout")
+@allure.story("Complete checkout")
 def test_complete_checkout( checkout_page) -> None:
     checkout_page.fill_customer_details("John", "Doe", "12345")
     checkout_page.continue_to_overview()
